@@ -726,28 +726,6 @@ namespace GnomoriaModUI
             }
         }
 
-
-        protected void Inject_ClassCreationHook(ClassCreationHook classCreationHook)
-        {
-            var meth = Helper_MethodBase_to_MethodDefinition(classCreationHook.InterceptCreationInMethod);
-            //var conType = Module.Import(classCreationHook.ClassToInterceptCreation);
-            var ilgen = meth.Body.GetILProcessor();
-            for (var i = 0; i < meth.Body.Instructions.Count; i++)
-            {
-                var ins = meth.Body.Instructions[i];
-                if (ins.OpCode == OpCodes.Newobj)
-                {
-                    var trgMeth = ins.Operand as MethodReference;
-                    if( Helper_TypeReference_to_Type(trgMeth.DeclaringType) == classCreationHook.ClassToInterceptCreation)
-                    //if ((trgMeth.DeclaringType == conType) && trgMeth.Name == ".ctor")
-                    {
-                        meth.Body.Instructions[i] = ilgen.Create(OpCodes.Call, Module.Import(classCreationHook.CustomCreationMethod));
-                    }
-                }
-            }
-            //throw new NotImplementedException();
-        }
-
         public void Inject_Modification(IModification modification)
         {
             if (modification == null)
@@ -773,10 +751,6 @@ namespace GnomoriaModUI
             else if (modification is Faark.Gnomoria.Modding.ClassChangeBase)
             {
                 Inject_ClassChangeBase(modification as Faark.Gnomoria.Modding.ClassChangeBase);
-            }
-            else if (modification is Faark.Gnomoria.Modding.ClassCreationHook)
-            {
-                Inject_ClassCreationHook(modification as Faark.Gnomoria.Modding.ClassCreationHook);
             }
             else if (modification is Faark.Gnomoria.Modding.IModificationCollection)
             {

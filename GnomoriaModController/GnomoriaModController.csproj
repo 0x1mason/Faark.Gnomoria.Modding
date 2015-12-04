@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="Gnomoria">
       <HintPath>..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\Gnomoria\Gnomoria.exe</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="gnomorialib">
       <HintPath>..\gnomorialib.dll</HintPath>
@@ -61,7 +62,6 @@
     <Compile Include="ContentMods\CustomRecipe.cs" />
     <Compile Include="Modifications\EnumModification.cs" />
     <Compile Include="HelperMods\ModRightClickMenu.cs" />
-    <Compile Include="Modifications\ClassCreationHook.cs" />
     <Compile Include="Modifications\MethodModification.cs" />
     <Compile Include="MethodOf.cs" />
     <Compile Include="Modifications\MethodAddVirtual.cs" />

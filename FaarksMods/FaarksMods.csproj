@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="Gnomoria">
       <HintPath>..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\Gnomoria\Gnomoria.exe</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="gnomorialib">
       <HintPath>..\gnomorialib.dll</HintPath>
