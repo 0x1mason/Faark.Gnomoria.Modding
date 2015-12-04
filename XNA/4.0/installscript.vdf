@@ -1,0 +1,17 @@
+"installscript"
+{
+	"Run Process"
+	{
+		"4.0 Refresh"
+		{
+			"hasrunkey"		"HKEY_LOCAL_MACHINE\\Software\\Valve\\Steam\\Apps\\CommonRedist\\XNA\\4.0"
+			"process 1"		"msiexec"
+			"command 1"		"/i \"%INSTALLDIR%\\_CommonRedist\\XNA\\4.0\\xnafx40_redist.msi\" /quiet /norestart"
+			"nocleanup"		"1"
+		}
+	}
+}
+"kvsignatures"
+{
+	"installscript"		"78853fc445b1af1f7709eb1a2b357980ac6d5762cf5d9a80d32ee5d247f001c6c526d93c2a0a18266602afe719ad05eb40d936679a41404164d5ab8c5ff4061eb6a1bc54066c992e7f69eb075fd6955003b0bb96c77c927641bac584efcbf2835e45090fdf5b36fc1b3e42ec581e221332ca2b887f83ca674c9ba9ca33562d72"
+}
