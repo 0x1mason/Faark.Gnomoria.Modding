@@ -1,0 +1,1 @@
+msiexec /qb /norestart /fa "xnafx40_redist.msi"

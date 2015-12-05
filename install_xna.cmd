@@ -1,1 +1,0 @@
-msiexec  /i "%~dp0XNA\\4.0\\xnafx40_redist.msi" TARGETDIR="%~dp0XNA\\4.0\\" /qb /norestart

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gemini.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,13 @@ namespace Gemini
     {
         static void Main (string[] args)
         {
+          //  if (args.Contains("-update"))
+            {
+                ModLoader.Update();
+                GameLauncher.Run();
+              //  ModLoader.LaunchWithMods();
+            }
+          //  ModLoader.Load();
         }
     }
 }
