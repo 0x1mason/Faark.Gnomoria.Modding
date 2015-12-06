@@ -46,13 +46,23 @@ namespace Gemini.Util
 
         private string ComputeHash ()
         {
+            string hash = "";
+
+            // don't want the hash itself borking computation
+            var temp = _data["Gemini"]["Checksum"];
+            _data["Gemini"]["Checksum"] = "";
+
             using (var md5 = MD5.Create())
             {
                 using (var stream = StreamFromString(_data.ToString()))
                 {
-                    return Convert.ToBase64String(md5.ComputeHash(stream));
+                    hash = Convert.ToBase64String(md5.ComputeHash(stream));
                 }
             }
+
+            _data["Gemini"]["Checksum"] = temp;
+
+            return hash;
         }
 
         private MemoryStream StreamFromString (string value)
@@ -67,13 +77,18 @@ namespace Gemini.Util
         {
             if (HasChanged)
             {
+                foreach (var mod in Mods)
+                {
+                    _data["Mods"][mod.Key] = mod.Value ? "E" : "D";
+                }
+
                 _data["Gemini"]["Checksum"] = ComputeHash();
                 _parser.WriteFile(FILE_NAME, _data);
             }
         }
 
         /// <summary>
-        /// Gets a value indicating whether this instance has changed.
+        /// Has the file changed since the last time the Checksum was updated?
         /// </summary>
         /// <value>
         /// <c>true</c> if this instance has changed; otherwise, <c>false</c>.

@@ -53,8 +53,8 @@ namespace Gemini.Util
 
                 try
                 {
-                    assembly = testDomain.Load(file.FullName);
-                    //assembly = Assembly.LoadFrom(file.FullName);
+                    //assembly = testDomain.Load(file.FullName);
+                    assembly = Assembly.LoadFrom(file.FullName);
 
                     foreach (var type in assembly.GetTypes())
                     {
