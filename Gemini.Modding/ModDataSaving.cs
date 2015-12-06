@@ -7,7 +7,7 @@ using System.Xml.Linq;
 using System.Runtime.Serialization;
 using System.IO;
 
-namespace Faark.Gnomoria.Modding
+namespace Gemini.Modding
 {
     public class ModSaveData
     {

@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using Gemini.Util;
 using Faark.Util;
-namespace Faark.Gnomoria.Modding
+namespace Gemini.Modding
 {   
 
 
@@ -32,7 +32,7 @@ namespace Faark.Gnomoria.Modding
                 Log.TargetModes.File
                 );
 
-            //AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             var loadAssemblys = !args.Contains("-noassemblyloading");
             try
@@ -62,6 +62,13 @@ namespace Faark.Gnomoria.Modding
             */
             //LoadMod(new DemoMod().GetConfig());
         }
+
+        static void CurrentDomain_UnhandledException (object sender, UnhandledExceptionEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+
         public static IEnumerable<IMod> ActiveMods
         {
             get

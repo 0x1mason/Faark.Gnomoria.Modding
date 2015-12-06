@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
 
-namespace Faark.Gnomoria.Modding
+namespace Gemini.Modding
 {
     public interface IModification
     {

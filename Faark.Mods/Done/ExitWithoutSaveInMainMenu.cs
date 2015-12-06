@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 using System.Runtime.Serialization;
-using Faark.Gnomoria.Modding;
+using Gemini.Modding;
 using Game;
 using Game.GUI;
 using Game.GUI.Controls;
@@ -12,7 +12,7 @@ using GameLibrary;
 using Faark.Util;
 using Microsoft.Xna.Framework;
 
-namespace Faark.Gnomoria.Mods
+namespace Faark.Mods
 {
 #if true
     /// <summary>

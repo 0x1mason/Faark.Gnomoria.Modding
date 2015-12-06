@@ -5,11 +5,11 @@ using System.Reflection;
 using System.Text;
 using Game;
 using GameLibrary;
-using Faark.Gnomoria.Modding;
+using Gemini.Modding;
 using Faark.Util;
 using Faark.Util.Serialization;
 
-namespace Faark.Gnomoria.Mods.BugStuff
+namespace Faark.Mods.BugStuff
 {
 #if false
     /// <summary>

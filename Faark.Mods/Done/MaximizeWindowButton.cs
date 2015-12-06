@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Reflection;
-using Faark.Gnomoria.Modding;
-using Faark.Gnomoria.Modding.ContentMods;
+using Gemini.Modding;
+using Gemini.Modding.ContentMods;
 using Game;
 using Game.GUI;
 using Game.GUI.Controls;
@@ -13,7 +13,7 @@ using Faark.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Faark.Gnomoria.Mods
+namespace Faark.Mods
 {
 #if true
     /// <summary>
@@ -63,8 +63,8 @@ namespace Faark.Gnomoria.Mods
         {
             if ((graphicsTex == null) || (graphicsTex.GraphicsDevice != GnomanEmpire.Instance.GraphicsDevice) || graphicsTex.IsDisposed)
             {
-                graphicsTex = CustomTextureManager.GetFromAssemblyResource(Assembly.GetExecutingAssembly(), "Faark.Gnomoria.Mods.Resources.maxButtons.png");
-                //Texture2D.FromStream(GnomanEmpire.Instance.GraphicsDevice, Assembly.GetExecutingAssembly().GetManifestResourceStream( "Faark.Gnomoria.Mods.Resources.maxButtons.png"));
+                graphicsTex = CustomTextureManager.GetFromAssemblyResource(Assembly.GetExecutingAssembly(), "Faark.Mods.Resources.maxButtons.png");
+                //Texture2D.FromStream(GnomanEmpire.Instance.GraphicsDevice, Assembly.GetExecutingAssembly().GetManifestResourceStream( "Faark.Mods.Resources.maxButtons.png"));
             }
             var maxImg = new SkinImage();
             maxImg.Resource = graphicsTex; // warning have to load it here!

@@ -7,7 +7,7 @@ using Mono.Cecil.Cil;
 using Mono.Cecil.Rocks;
 using Gemini.Util;
 
-namespace Faark.Gnomoria.Modding
+namespace Gemini.Modding
 {
     public class GnomoriaExeInjector : Injector
     {
@@ -30,9 +30,9 @@ namespace Faark.Gnomoria.Modding
                 );
             method_that_calls_our_modul.Parameters.Add(new ParameterDefinition("args", ParameterAttributes.None, Module.Import(typeof(string[]))));
             var method_that_calls__body = method_that_calls_our_modul.Body.GetILProcessor();
-            //CODE FOR: Faark.Gnomoria.Modding.ModRuntimeController.Initiallize();
+            //CODE FOR: Gemini.Modding.ModRuntimeController.Initiallize();
             method_that_calls__body.Append(method_that_calls__body.Create(OpCodes.Ldarg_0));
-            method_that_calls__body.Append(method_that_calls__body.Create(OpCodes.Call, Module.Import(Method.Of<string[]>(Faark.Gnomoria.Modding.RuntimeModController.Initialize))));
+            method_that_calls__body.Append(method_that_calls__body.Create(OpCodes.Call, Module.Import(Method.Of<string[]>(Gemini.Modding.RuntimeModController.Initialize))));
             method_that_calls__body.Append(method_that_calls__body.Create(OpCodes.Ret));
             ep.DeclaringType.Methods.Add(method_that_calls_our_modul);
 
@@ -243,7 +243,7 @@ namespace Faark.Gnomoria.Modding
             /* this cant run, since it isn't referenced while compiling EntryPoint. Also it does not make sense to wrapp LoadAssembly(Mod.dll) with it in case that fails...
              * var write = il.Create(
                 OpCodes.Call,
-                module.Import(typeof(Faark.Gnomoria.Modding.ModRuntimeController).GetMethod("WriteCrashLog")));** /
+                module.Import(typeof(Gemini.Modding.ModRuntimeController).GetMethod("WriteCrashLog")));** /
             //var write1 = il.Create(OpCodes.Callvirt, module.Import(typeof(System.Object).GetMethod("ToString", new Type[] { })));
             //var write2 = il.Create(OpCodes.Call, module.Import(typeof(System.Windows.Forms.MessageBox).GetMethod("Show", new Type[] { typeof(string) })));
             //var write3 = il.Create(OpCodes.Pop);
@@ -293,32 +293,32 @@ namespace Faark.Gnomoria.Modding
         {
             Inject_Hook(
                 Module.GetType("Game.Map").Methods.Single(m => m.Name == "GenerateMap"),
-                Module.Import(typeof(Faark.Gnomoria.Modding.RuntimeModController).GetMethod("PreCreateHook", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)),
+                Module.Import(typeof(Gemini.Modding.RuntimeModController).GetMethod("PreCreateHook", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)),
                 MethodHookType.RunBefore,
                 MethodHookFlags.None);
             Inject_Hook(
                 Module.GetType("Game.Map").Methods.Single(m => m.Name == "GenerateMap"),
-                Module.Import(typeof(Faark.Gnomoria.Modding.RuntimeModController).GetMethod("PostCreateHook", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)),
+                Module.Import(typeof(Gemini.Modding.RuntimeModController).GetMethod("PostCreateHook", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)),
                 MethodHookType.RunAfter,
                 MethodHookFlags.None);
             Inject_Hook(
                 Module.GetType("Game.GnomanEmpire").Methods.Single(m => m.Name == "LoadGame"),
-                Module.Import(typeof(Faark.Gnomoria.Modding.RuntimeModController).GetMethod("PreLoadHook", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)),
+                Module.Import(typeof(Gemini.Modding.RuntimeModController).GetMethod("PreLoadHook", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)),
                 MethodHookType.RunBefore,
                 MethodHookFlags.None);
             Inject_Hook(
                 Module.GetType("Game.GnomanEmpire").Methods.Single(m => m.Name == "LoadGame"),
-                Module.Import(typeof(Faark.Gnomoria.Modding.RuntimeModController).GetMethod("PostLoadHook", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)),
+                Module.Import(typeof(Gemini.Modding.RuntimeModController).GetMethod("PostLoadHook", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)),
                 MethodHookType.RunAfter,
                 MethodHookFlags.None);
             Inject_Hook(
                  Module.GetType("Game.GnomanEmpire").Methods.Single(m => m.Name == "SaveGame"),
-                 Module.Import(typeof(Faark.Gnomoria.Modding.RuntimeModController).GetMethod("PreSaveHook", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)),
+                 Module.Import(typeof(Gemini.Modding.RuntimeModController).GetMethod("PreSaveHook", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)),
                  MethodHookType.RunBefore,
                  MethodHookFlags.None);
             Inject_Hook(
                  Module.GetType("Game.GnomanEmpire").Methods.Single(m => m.Name == "SaveGame"),
-                 Module.Import(typeof(Faark.Gnomoria.Modding.RuntimeModController).GetMethod("PostSaveHook", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)),
+                 Module.Import(typeof(Gemini.Modding.RuntimeModController).GetMethod("PostSaveHook", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)),
                  MethodHookType.RunAfter,
                  MethodHookFlags.None);
 

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Reflection;
-using Faark.Gnomoria.Modding;
+using Gemini.Modding;
 using Faark.Util;
 
 namespace Gemini.Util
@@ -76,8 +76,8 @@ namespace Gemini.Util
             try
             {
                 //Make sure all assemblys are loaded & can be used by/referenced our mods 
-                //processModType(typeof(Faark.Gnomoria.Modding.DemoMods.PopulationUI_SyncTabScrolls));
-                //processModType(typeof(Faark.Gnomoria.Modding.DemoMods.Game_CreateBackupSavegame));
+                //processModType(typeof(Gemini.Modding.DemoMods.PopulationUI_SyncTabScrolls));
+                //processModType(typeof(Gemini.Modding.DemoMods.Game_CreateBackupSavegame));
 
 
                 var mod_dir = gnomoria_base.GetDirectories().Single(sub => sub.Name.ToUpper() == "MODS");
@@ -115,7 +115,7 @@ namespace Gemini.Util
                     {
                         var mod_types = assembly.GetTypes().Where(t =>
                         {
-                            return typeof(IMod).IsAssignableFrom(t) && !(typeof(Faark.Gnomoria.Modding.SupportMod).IsAssignableFrom(t));
+                            return typeof(IMod).IsAssignableFrom(t) && !(typeof(Gemini.Modding.SupportMod).IsAssignableFrom(t));
                         });
                         foreach (var mod_type in mod_types)
                         {

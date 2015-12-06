@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Reflection;
-using Faark.Gnomoria.Modding;
+using Gemini.Modding;
 
-namespace Faark.Gnomoria.Mods
+namespace Faark.Mods
 {
 #if false
 

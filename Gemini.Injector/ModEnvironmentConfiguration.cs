@@ -12,7 +12,7 @@ using System.Xml.Serialization;
 using System.IO;
 using Faark.Util;
 
-namespace Faark.Gnomoria.Modding
+namespace Gemini.Modding
 {
     [DataContract]
     public class ModEnvironmentConfiguration

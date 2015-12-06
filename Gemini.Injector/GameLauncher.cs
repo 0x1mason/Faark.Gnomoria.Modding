@@ -30,7 +30,7 @@ namespace Gemini.Util
                 try
                 {
                     System.Reflection.Assembly.Load(System.IO.File.ReadAllBytes(Path.Combine(thisPath,"Gemini.Injector.dll")));
-                    var ass = System.Reflection.Assembly.Load(System.IO.File.ReadAllBytes("GnomoriaModded.dll"));
+                    var ass = System.Reflection.Assembly.Load(System.IO.File.ReadAllBytes(Path.Combine(ModManager.GameDirectory.FullName, "GnomoriaModded.dll")));
                     var ep = ass.EntryPoint;
                     //var inst = ass.GetType("Game.GnomanEmpire").GetProperty("Instance").GetGetMethod().Invoke(null, new object[] { });
                     //var obj = ass.CreateInstance(ep.Name);
@@ -49,7 +49,7 @@ namespace Gemini.Util
                 handleStuff_Enter();
                 if (!(e.Exception is System.Threading.ThreadAbortException))
                 {
-                    Faark.Gnomoria.Modding.RuntimeModController.Log.Write("FirstChanceException", e.Exception);
+                    Gemini.Modding.RuntimeModController.Log.Write("FirstChanceException", e.Exception);
                     lastFirstChanceException = e.Exception;
                 }
                 handleStuff_Leave();
@@ -59,11 +59,11 @@ namespace Gemini.Util
                 handleStuff_Enter();
                 if (e.ExceptionObject == lastFirstChanceException)
                 {
-                    Faark.Gnomoria.Modding.RuntimeModController.Log.Write("First Chance Exception is not handled" + (e.IsTerminating ? ", terminating." : "."));
+                    Gemini.Modding.RuntimeModController.Log.Write("First Chance Exception is not handled" + (e.IsTerminating ? ", terminating." : "."));
                 }
                 else
                 {
-                    Faark.Gnomoria.Modding.RuntimeModController.Log.Write(e.IsTerminating ? "UnhandledException (t)" : "UnhandledException", e.ExceptionObject as Exception);
+                    Gemini.Modding.RuntimeModController.Log.Write(e.IsTerminating ? "UnhandledException (t)" : "UnhandledException", e.ExceptionObject as Exception);
                 }
                 handleStuff_Leave();
             }
@@ -74,7 +74,7 @@ namespace Gemini.Util
                 {
                     AppDomain.CurrentDomain.UnhandledException -= CurrentDomain_UnhandledException;
                     AppDomain.CurrentDomain.FirstChanceException -= CurrentDomain_FirstChanceException;
-                    Faark.Gnomoria.Modding.RuntimeModController.Log.Write("Tried to handle an error while already doing this.");
+                    Gemini.Modding.RuntimeModController.Log.Write("Tried to handle an error while already doing this.");
                     throw new Exception("Tried to handle an error while already doing it...");
                 }
                 isCurrentlyHandlingSth = true;
@@ -112,14 +112,14 @@ namespace Gemini.Util
             }
             void CustomErrorHandler(Exception err)
             {
-                Faark.Gnomoria.Modding.RuntimeModController.Log.Write("UnhandledException", err);
+                Gemini.Modding.RuntimeModController.Log.Write("UnhandledException", err);
                 //System.Windows.Forms.MessageBox.Show(
                 //    "Sorry, but Gnomoria has crashed." + Environment.NewLine
                 //    + Environment.NewLine
                 //    + Environment.NewLine
                 //    + "Check out these logfiles for more information:" + Environment.NewLine
-                //    + Faark.Gnomoria.Modding.RuntimeModController.Log.GetLogfile().FullName + Environment.NewLine
-                //    + Faark.Gnomoria.Modding.RuntimeModController.Log.GetGameLogfile().FullName,
+                //    + Gemini.Modding.RuntimeModController.Log.GetLogfile().FullName + Environment.NewLine
+                //    + Gemini.Modding.RuntimeModController.Log.GetGameLogfile().FullName,
                 //    "Gnomoria [modded] has crashed.");
             }
         }

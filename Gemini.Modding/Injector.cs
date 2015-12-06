@@ -5,7 +5,7 @@ using System.Text;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
 using Mono.Cecil.Rocks;
-using Faark.Gnomoria.Modding;
+using Gemini.Modding;
 using Faark.Util;
 
 namespace Gemini.Util
@@ -733,29 +733,29 @@ namespace Gemini.Util
             {
                 throw new Exception("Modification is null.");
             }
-            else if (modification is Faark.Gnomoria.Modding.MethodHook)
+            else if (modification is Gemini.Modding.MethodHook)
             {
-                Inject_Hook(modification as Faark.Gnomoria.Modding.MethodHook);
+                Inject_Hook(modification as Gemini.Modding.MethodHook);
             }
-            else if (modification is Faark.Gnomoria.Modding.MethodAddVirtual)
+            else if (modification is Gemini.Modding.MethodAddVirtual)
             {
-                Inject_Virtual(modification as Faark.Gnomoria.Modding.MethodAddVirtual);
+                Inject_Virtual(modification as Gemini.Modding.MethodAddVirtual);
             }
-            else if (modification is Faark.Gnomoria.Modding.MethodRefHook)
+            else if (modification is Gemini.Modding.MethodRefHook)
             {
-                Inject_RefHook(modification as Faark.Gnomoria.Modding.MethodRefHook);
+                Inject_RefHook(modification as Gemini.Modding.MethodRefHook);
             }
-            else if (modification is Faark.Gnomoria.Modding.EnumAddElement)
+            else if (modification is Gemini.Modding.EnumAddElement)
             {
-                Inject_AddEnumElement(modification as Faark.Gnomoria.Modding.EnumAddElement);
+                Inject_AddEnumElement(modification as Gemini.Modding.EnumAddElement);
             }
-            else if (modification is Faark.Gnomoria.Modding.ClassChangeBase)
+            else if (modification is Gemini.Modding.ClassChangeBase)
             {
-                Inject_ClassChangeBase(modification as Faark.Gnomoria.Modding.ClassChangeBase);
+                Inject_ClassChangeBase(modification as Gemini.Modding.ClassChangeBase);
             }
-            else if (modification is Faark.Gnomoria.Modding.IModificationCollection)
+            else if (modification is Gemini.Modding.IModificationCollection)
             {
-                foreach (var sub_mod in (modification as Faark.Gnomoria.Modding.IModificationCollection))
+                foreach (var sub_mod in (modification as Gemini.Modding.IModificationCollection))
                 {
                     Inject_Modification(sub_mod);
                 }

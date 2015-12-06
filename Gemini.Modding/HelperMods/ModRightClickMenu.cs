@@ -12,7 +12,7 @@ using Game;
 using GameLibrary;
 using Microsoft.Xna.Framework;
 
-namespace Faark.Gnomoria.Modding.HelperMods
+namespace Gemini.Modding.HelperMods
 {
     public class ModRightClickMenu: SupportMod
     {

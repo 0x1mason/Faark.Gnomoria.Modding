@@ -15,7 +15,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 //    Content Mods are meant to be heavy helper classes, used by other mods. This ones are not fully finished (e.G. save related issues, or stockmanager&etc not showing them), with a lot of issues. Use at own risk, and if possible try to complete them.
 
-namespace Faark.Gnomoria.Modding.ContentMods
+namespace Gemini.Modding.ContentMods
 {
     public static class CustomTextureManager
     {

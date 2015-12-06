@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Faark.Gnomoria.Modding;
+using Gemini.Modding;
 using Faark.Util;
 
 namespace Gemini.Util

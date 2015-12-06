@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 using Gemini.Util;
 
 
-namespace Faark.Gnomoria.Modding
+namespace Gemini.Modding
 {
     public class MethodRefHook : UnmutableMethodModification
     {

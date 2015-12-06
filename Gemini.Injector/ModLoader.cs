@@ -1,4 +1,4 @@
-﻿using Faark.Gnomoria.Modding;
+﻿using Gemini.Modding;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -37,7 +37,7 @@ namespace Gemini.Util
 
         private static bool IsModType(Type type)
         {
-            return typeof(IMod).IsAssignableFrom(type) && !(typeof(Faark.Gnomoria.Modding.SupportMod).IsAssignableFrom(type));
+            return typeof(IMod).IsAssignableFrom(type) && !(typeof(Gemini.Modding.SupportMod).IsAssignableFrom(type));
         }
 
         public static List<string> GetAssembliesToLoad ()

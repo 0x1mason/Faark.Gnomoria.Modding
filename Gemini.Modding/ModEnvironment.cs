@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using Faark.Util;
 
-namespace Faark.Gnomoria.Modding
+namespace Gemini.Modding
 {
     /// <summary>
     /// Serves as some kind of "mod registery". Since we have to make sure that every mod is instanciated only once,

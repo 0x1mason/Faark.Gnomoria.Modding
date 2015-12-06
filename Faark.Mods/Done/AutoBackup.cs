@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
-using Faark.Gnomoria.Modding;
+using Gemini.Modding;
 
-namespace Faark.Gnomoria.Mods
+namespace Faark.Mods
 {
 #if true
     /// <summary>
@@ -88,7 +88,7 @@ namespace Faark.Gnomoria.Mods
                 }
                 catch (Exception err)
                 {
-                    RuntimeModController.Log.Write(err);
+                    //RuntimeModController.Log.Write(err);
                 }
             });
 

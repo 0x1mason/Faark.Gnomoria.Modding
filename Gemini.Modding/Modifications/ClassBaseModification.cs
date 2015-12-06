@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using Faark.Util;
 
-namespace Faark.Gnomoria.Modding
+namespace Gemini.Modding
 {
     public abstract class ClassModification : IModification
     {
